@@ -1,6 +1,7 @@
 steps:
 - name: 'gcr.io/cloud-builders/go'
   args: ['build']
+  env: ['GOPATH=.']
 - name: 'gcr.io/cloud-builders/docker'
   args: ['build', '-t', 'us-west1-docker.pkg.dev/graphite-nectar-415602/cloud-run-source-deploy/clamav-api:$SHORT_SHA', '.']
 images: ['us-west1-docker.pkg.dev/graphite-nectar-415602/cloud-run-source-deploy/clamav-api:$SHORT_SHA']
